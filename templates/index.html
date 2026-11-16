@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quản lý tập json các câu hỏi và COT về Quantum Computing</title>
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; padding: 10px; background: #E6F2FF; font-family: Arial, Helvetica, sans-serif; color: #111; }
+  .wrap { max-width: 1000px; margin: 0 auto; display: flex; flex-direction: column; min-height: calc(100vh - 20px); }
+  h1 { margin: 0 0 8px; padding: 12px; background: #003366; color: #FFD700; font-size: 1.1rem; text-align: center; }
+  .controls { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; padding: 12px 15px; background: #D9ECFF; border: 1px solid #003366; margin-bottom: 8px; }
+  .controls label { font-weight: bold; color: #003366; }
+  input[type=number] { width: 80px; padding: 6px; font-size: 1rem; text-align: center; border: 2px solid #888; }
+  button { padding: 8px 16px; font-size: 0.95rem; font-weight: bold; color: #fff; background: #0059B3; border: 0; border-radius: 3px; cursor: pointer; }
+  button:hover { background: #004080; }
+  button:disabled { opacity: .5; cursor: not-allowed; }
+  button.danger { background: red; }
+  button.danger:hover { background: #B30000; }
+  .pane { flex: 1; display: flex; flex-direction: column; background: #F0F8FF; border: 2px solid #003366; }
+  .pane-header { padding: 8px 10px; background: #004080; color: #FFEB3B; font-weight: bold; }
+  #content { flex: 1; margin: 5px; padding: 14px; background: #fff; overflow-y: auto; line-height: 1.55; min-height: 300px; }
+  .title { font-weight: bold; font-size: 1.05rem; color: #003366; margin-bottom: 14px; }
+  .label { font-weight: bold; color: #B22222; margin: 14px 0 6px; }
+  .thought { color: #004D40; margin: 0 0 6px 18px; }
+  .answer { font-weight: bold; font-size: 1.05rem; color: #0059B3; }
+  .error { color: #B22222; font-weight: bold; }
+  .muted { color: #666; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>QUẢN LÝ TẬP JSON CÁC CÂU HỎI VÀ COT VỀ QUANTUM COMPUTING</h1>
+
+  <div class="controls">
+    <button id="btnBack" type="button">◀ Back</button>
+    <label for="stt">STT (1 - {{ total }}):</label>
+    <input id="stt" type="number" min="1" max="{{ total }}" value="1">
+    <button id="btnNext" type="button">Next ▶</button>
+    <button id="btnRead" type="button">Read Question</button>
+    <button id="btnClear" type="button" class="danger">Clear All</button>
+  </div>
+
+  <div class="pane">
+    <div class="pane-header">Cửa sổ 1: Nội dung Câu hỏi, Chuỗi suy luận (CoT) và Đáp án</div>
+    <div id="content"><span class="muted">Đang tải…</span></div>
+  </div>
+</div>
+
+<script>
+const TOTAL = {{ total }};
+const $stt = document.getElementById("stt");
+const $content = document.getElementById("content");
+
+function el(tag, cls, text) {
+  const e = document.createElement(tag);
+  if (cls) e.className = cls;
+  if (text !== undefined) e.textContent = text;   // textContent: an toàn, không chạy HTML
+  return e;
+}
+
+function showMessage(msg) { alert(msg); }
+
+async function readQuestion() {
+  const raw = $stt.value.trim();
+  if (!/^\d+$/.test(raw)) { showMessage("Vui lòng nhập một số nguyên dương hợp lệ!"); return; }
+  const stt = parseInt(raw, 10);
+  if (stt < 1 || stt > TOTAL) { showMessage(`Số thứ tự phải nằm trong khoảng từ 1 đến ${TOTAL}.`); return; }
+
+  try {
+    const res = await fetch(`/api/questions/${stt}`);
+    const d = await res.json();
+    if (!res.ok) throw new Error(d.error || "Lỗi không xác định");
+
+    $content.replaceChildren(
+      el("div", "title", `=== BÀI TOÁN SỐ ${d.stt} / ${d.total} ===`),
+      el("div", "label", "[CÂU HỎI]:"),
+      el("div", "", d.question),
+      el("div", "label", "[CHUỖI SUY LUẬN (CHAIN OF THOUGHT)]:"),
+      ...d.thoughts.map(t => el("div", "thought", "• " + t)),
+      el("div", "label", "[ĐÁP ÁN CUỐI CÙNG]:"),
+      el("div", "answer", d.answer)
+    );
+    $content.scrollTop = 0;
+  } catch (err) {
+    $content.replaceChildren(el("div", "error", "Lỗi tải dữ liệu: " + err.message));
+  }
+}
+
+function step(delta) {
+  const cur = parseInt($stt.value, 10);
+  if (isNaN(cur)) return;
+  const next = cur + delta;
+  if (next < 1) { showMessage("Bạn đang ở câu hỏi đầu tiên (Số 1)."); return; }
+  if (next > TOTAL) { showMessage(`Bạn đang ở câu hỏi cuối cùng (Số ${TOTAL}).`); return; }
+  $stt.value = next;
+  readQuestion();
+}
+
+document.getElementById("btnBack").onclick = () => step(-1);
+document.getElementById("btnNext").onclick = () => step(1);
+document.getElementById("btnRead").onclick = readQuestion;
+document.getElementById("btnClear").onclick = () => $content.replaceChildren();
+$stt.addEventListener("keydown", e => { if (e.key === "Enter") readQuestion(); });
+
+readQuestion();   // tự động đọc câu số 1 khi mở trang
+</script>
+</body>
+</html>

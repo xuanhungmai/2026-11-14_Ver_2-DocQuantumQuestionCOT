@@ -1,0 +1,339 @@
+[
+  {
+    "question": "Cho mạch lượng tử 2 qubit gồm: Cổng Hadamard tác dụng lên qubit 1, sau đó cổng CNOT với qubit 1 là điều khiển và qubit 2 là mục tiêu. Trạng thái đầu ra của hệ bắt đầu từ |00> là gì?",
+    "thought_1": "Bước 1: Áp dụng cổng H lên qubit thứ nhất của trạng thái |00>, ta thu được (1/sqrt(2))(|00> + |10>).",
+    "thought_2": "Bước 2: Áp dụng cổng CNOT với qubit 1 là điều khiển và qubit 2 là mục tiêu. Thành phần |00> giữ nguyên, thành phần |10> chuyển thành |11>.",
+    "thought_3": "Bước 3: Trạng thái đầu ra cuối cùng là (1/sqrt(2))(|00> + |11>), đây chính là trạng thái Bell |Phi+>.",
+    "answer": "(1/sqrt(2))(|00> + |11>)"
+  },
+  {
+    "question": "Cho trạng thái Bell |Phi+> = (1/sqrt(2))(|00> + |11>). Nếu ta đo riêng lẻ từng qubit trên cơ sở tính toán và thu được kết quả qubit 1 bằng 1, xác suất đo được qubit 2 bằng 1 là bao nhiêu phần trăm?",
+    "thought_1": "Bước 1: Trạng thái Bell |Phi+> có sự tương quan hoàn hảo giữa hai qubit.",
+    "thought_2": "Bước 2: Khi phép đo trên qubit 1 cho kết quả 1, trạng thái của hệ thống suy sụp hoàn toàn về trạng thái cơ sở |11>.",
+    "thought_3": "Bước 3: Do đó, kết quả đo qubit 2 chắc chắn là 1, xác suất đạt 100%.",
+    "answer": "100%"
+  },
+  {
+    "question": "Trong thuật toán Deutsch-Jozsa cho hàm Boolean 3 biến f(x) : {0,1}^3 -> {0,1}, nếu hàm số được xác định là hàm hằng (constant), giá trị giao thoa tại trạng thái toàn-0 (|000>) sau khi đi qua lớp cổng Hadamard cuối cùng có biên độ bằng bao nhiêu?",
+    "thought_1": "Bước 1: Trạng thái trước lớp Hadamard cuối cùng là tổng chập các pha (-1)^(f(x))|x>.",
+    "thought_2": "Bước 2: Biên độ của trạng thái |0^n> sau lớp Hadamard cuối là trung bình cộng của các giá trị (-1)^(f(x)).",
+    "thought_3": "Bước 3: Nếu hàm là hàm hằng, mọi f(x) đều bằng nhau, tổng các dấu bằng 2^n, do đó biên độ dự báo cho |000> là 1 (hoặc -1 tùy quy ước), xác suất đo ra |000> bằng 100%.",
+    "answer": "1"
+  },
+  {
+    "question": "Tính độfidelity (độ trung thực) F(rho, sigma) giữa hai trạng thái thuần túy rho = |psi><psi| và sigma = |phi><phi|, biết tích vô hướng |<psi|phi>|^2 = 0.64.",
+    "thought_1": "Bước 1: Định nghĩa độ trung thực giữa hai trạng thái thuần túy là F(|psi>, |phi>) = |<psi|phi>|.",
+    "thought_2": "Bước 2: Từ giả thiết |<psi|phi>|^2 = 0.64, suy ra căn bậc hai của nó là sqrt(0.64) = 0.8.",
+    "thought_3": "Bước 3: Kết luận độ fidelity F bằng 0.8.",
+    "answer": "0.8"
+  },
+  {
+    "question": "Cho một mạch lượng tử sử dụng cổng SWAP kiểm soát (Fredkin gate - CSWAP) với trạng thái điều khiển là |1> và hai trạng thái mục tiêu lần lượt là |0> và |1>. Trạng thái đầu ra của hai mục tiêu sau cổng là gì?",
+    "thought_1": "Bước 1: Cổng Fredkin (CSWAP) hoán đổi trạng thái của hai qubit mục tiêu nếu và chỉ nếu qubit điều khiển ở trạng thái |1>.",
+    "thought_2": "Bước 2: Qubit điều khiển ở trạng thái |1>, do đó hai trạng thái mục tiêu ban đầu |01> bị hoán đổi thành |10>.",
+    "thought_3": "Bước 3: Trạng thái đầu ra của hai qubit mục tiêu là |10>.",
+    "answer": "|10>"
+  },
+  {
+    "question": "Trong thuật toán tìm kiếm Grover với N = 16 phần tử và số lượng phần tử thỏa mãn m = 1, số bước lặp tối ưu R để xác suất tìm thấy mục tiêu đạt giá trị gần 1 nhất là bao nhiêu?",
+    "thought_1": "Bước 1: Công thức tính số bước lặp tối ưu trong thuật toán Grover là R ≈ (pi/4) * sqrt(N/m).",
+    "thought_2": "Bước 2: Thay N = 16 và m = 1 vào công thức: R ≈ (pi/4) * sqrt(16) = (pi/4) * 4 = pi ≈ 3.14.",
+    "thought_3": "Bước 3: Làm tròn số nguyên gần nhất ta được R = 3 bước lặp.",
+    "answer": "3"
+  },
+  {
+    "question": "Mã Shor 9-qubit bảo vệ một qubit logic khỏi lỗi đảo pha (phase-flip Z) và lỗi đảo bit (bit-flip X) sử dụng cơ chế kết hợp của hai loại mã nào?",
+    "thought_1": "Bước 1: Mã Shor 9-qubit kết hợp việc bảo vệ chống lỗi đảo bit (lặp lại trạng thái để bảo vệ qua mã 3-qubit bit-flip) và lỗi đảo pha.",
+    "thought_2": "Bước 2: Cụ thể, mỗi trạng thái logic được mã hóa bằng cách sử dụng mã Stiefel-Uhlmann kết hợp mã 3-qubit phase-flip ngoài cùng và mã 3-qubit bit-flip bên trong.",
+    "thought_3": "Bước 3: Do đó, mã Shor là sự kết hợp giữa mã bảo vệ chống đảo pha (phase-flip code) và mã chống đảo bit (bit-flip code).",
+    "answer": "Mã chống đảo pha và mã chống đảo bit (Phase-flip và Bit-flip code)"
+  },
+  {
+    "question": "Tính khoảng cách vết (Trace Distance) D(rho, sigma) giữa hai trạng thái mật độ chuẩn hóa trực giao hoàn toàn rho = |0><0| và sigma = |1><1|.",
+    "thought_1": "Bước 1: Khoảng cách vết giữa hai trạng thái được định nghĩa là D(rho, sigma) = (1/2) * Tr(|rho - sigma|).",
+    "thought_2": "Bước 2: Tính hiệu rho - sigma = diag(1, -1), ma trận trị tuyệt đối của nó có các giá trị riêng đều bằng 1.",
+    "thought_3": "Bước 3: Vết của ma trận hiệu tuyệt đối bằng Tr(diag(1, 1)) = 2, nhân với 1/2 cho kết quả bằng 1.",
+    "answer": "1"
+  },
+  {
+    "question": "Cho cổng Toffoli (CCNOT) tác dụng lên hệ 3 qubit ở trạng thái đầu vào |110>. Trạng thái đầu ra của qubit thứ ba (mục tiêu) là gì?",
+    "thought_1": "Bước 1: Cổng Toffoli lấy hai qubit đầu làm điều khiển và qubit thứ ba làm mục tiêu.",
+    "thought_2": "Bước 2: Hai qubit đầu ở trạng thái |11>, thỏa mãn điều kiện kích hoạt cổng (cả hai đều bằng 1).",
+    "thought_3": "Bước 3: Qubit mục tiêu ban đầu là |0> sẽ bị lật trạng thái thành |1>.",
+    "answer": "|1>"
+  },
+  {
+    "question": "Trong ước lượng pha lượng tử (Quantum Phase Estimation - QPE), nếu thanh ghi đếm gồm t = 3 qubit và pha thực tế cần ước lượng là theta = 0.25 (tương ứng với giá trị nhị phân chính xác 0.010 trong hệ thập phân là 2/8), xác suất thành công khi đọc trực tiếp kết quả ở thanh ghi đếm là bao nhiêu phần trăm?",
+    "thought_1": "Bước 1: Khi pha theta khớp chính xác với lưới phân rã nhị phân của t qubit (theta = p/2^t), biến đổi Fourier lượng tử ngược (IQFT) cho kết quả chính xác tuyệt đối.",
+    "thought_2": "Bước 2: Xác suất đo được đúng giá trị nhị phân tương ứng đạt cực đại tuyệt đối bằng 1.",
+    "thought_3": "Bước 3: Quy đổi ra tỷ lệ phần trăm là 100%.",
+    "answer": "100%"
+  },
+  {
+    "question": "Tính entropy vướng víu (Entanglement Entropy) S(rho_A) của hệ con A đối với trạng thái Bell thuần túy |Phi+> = (1/sqrt(2))(|00> + |11>).",
+    "thought_1": "Bước 1: Lấy vết phần (partial trace) đối với hệ con B để tìm ma trận mật độ giảm rho_A = Tr_B(|Phi+><Phi+|) = [[0.5, 0], [0, 0.5]].",
+    "thought_2": "Bước 2: Tính entropy von Neumann S(rho_A) = -Sum(lambda_i * log2(lambda_i)), với các trị riêng lambda_1 = 0.5, lambda_2 = 0.5.",
+    "thought_3": "Bước 3: S(rho_A) = -(0.5 * log2(0.5) + 0.5 * log2(0.5)) = -(0.5*(-1) + 0.5*(-1)) = 1 bit.",
+    "answer": "1"
+  },
+  {
+    "question": "Một kênh lượng tử khử cực đơn qubit (Depolarizing Channel) tác động lên trạng thái rho với xác suất lỗi p = 0.1 chuyển trạng thái thành ma trận đơn vị I/2. Độ tinh khiết mới của trạng thái ban đầu thuần túy là bao nhiêu?",
+    "thought_1": "Bước 2: Biểu thức kênh khử cực: E(rho) = (1 - p)*rho + p*(I/2). Với trạng thái ban đầu thuần túy rho, Tr(rho^2) = 1.",
+    "thought_2": "Bước 2: Khi rho chuyển thành hỗn hợp E(rho), tính lại độ tinh khiết Tr(E(rho)^2) theo tham số p. Đối với trạng thái thuần túy ban đầu, công thức tính độ tinh khiết sau kênh khử cực là (1 - 3p/4)^2 + ... (hoặc tính trực tiếp qua ma trận).",
+    "thought_3": "Bước 3: Thay p = 0.1 vào công thức tổng quát cho trạng thái suy giảm, ta thu được giá trị độ tinh khiết mới bằng 0.8525 (hoặc tính chính xác qua ma trận mật độ kết quả).",
+    "answer": "0.8525"
+  },
+  {
+    "question": "Cho mạch lượng tử tạo trạng thái GHZ 3-qubit: Bắt đầu từ |000>, áp dụng H lên qubit 1, sau đó CNOT(1->2) rồi CNOT(2->3). Trạng thái đầu ra là gì?",
+    "thought_1": "Bước 1: H|0> trên qubit 1 tạo ra (1/sqrt(2))(|000> + |100>).",
+    "thought_2": "Bước 2: CNOT(1->2) biến đổi thành (1/sqrt(2))(|000> + |110>).",
+    "thought_3": "Bước 3: CNOT(2->3) biến đổi thành (1/sqrt(2))(|000> + |111>), đây là trạng thái GHZ 3-qubit.",
+    "answer": "(1/sqrt(2))(|000> + |111>)"
+  },
+  {
+    "question": "Trong giao thức phân phối khóa lượng tử BB84, nếu Alice và Bob sử dụng hai cơ sở tính toán (Z: {|0>, |1>}) và cơ sở chéo (X: {|+>, |->}) hoàn toàn ngẫu nhiên và độc lập, tỷ lệ phần trăm các bit được giữ lại sau bước công khai cơ sở (sifting step) trong điều kiện lý tưởng là bao nhiêu?",
+    "thought_1": "Bước 1: Alice và Bob chọn ngẫu nhiên một trong hai cơ sở với xác suất bằng nhau (50% cho mỗi cơ sở).",
+    "thought_2": "Bước 2: Xác suất cả hai chọn trùng cơ sở trong mỗi lượt là 0.5 * 0.5 (cùng Z) + 0.5 * 0.5 (cùng X) = 0.5 (tức 50%).",
+    "thought_3": "Bước 3: Quy đổi ra tỷ lệ phần trăm số khóa thô được giữ lại là 50%.",
+    "answer": "50%"
+  },
+  {
+    "question": "Một cổng lượng tử một qubit có ma trận biểu diễn U = [[1, 0], [0, i]]. Hỏi U có phải là một toán tử unita (unitary operator) hợp lệ không?",
+    "thought_1": "Bước 1: Kiểm tra điều kiện unita U*U^dagger = I.",
+    "thought_2": "Bước 2: Tính liên hợp chuyển vị U^dagger = [[1, 0], [0, -i]]. Sau đó nhân ma trận U với U^dagger.",
+    "thought_3": "Bước 3: Tích hai ma trận cho ra ma trận đơn vị [[1, 0], [0, 1]], chứng tỏ đây là một toán tử unita hợp lệ.",
+    "answer": "Có (Là toán tử unita hợp lệ)"
+  },
+  {
+    "question": "Trong thuật toán Shor để phân tích thừa số nguyên N = 15, bước tìm chu kỳ r của hàm f(x) = a^x mod N dựa trên phép biến đổi nào để trích xuất chu kỳ?",
+    "thought_1": "Bước 1: Hàm f tuần hoàn với chu kỳ r, tức f(x + r) = f(x).",
+    "thought_2": "Bước 2: Để trích xuất thông tin chu kỳ r từ chồng chập lượng tử, thuật toán sử dụng Biến đổi Fourier lượng tử (Quantum Fourier Transform - QFT).",
+    "thought_3": "Bước 3: QFT chuyển đổi chu kỳ trong miền biên độ thành các đỉnh tần số có thể đọc được qua phép đo.",
+    "answer": "Biến đổi Fourier lượng tử (QFT)"
+  },
+  {
+    "question": "Cho trạng thái hỗn hợp rho = 0.7*|0><0| + 0.3*|1><1| biểu diễn qua cơ sở tính toán. Trị riêng lớn nhất của ma trận mật độ rho này bằng bao nhiêu?",
+    "thought_1": "Bước 1: Viết ma trận mật độ rho dưới dạng ma trận đường chéo: diag(0.7, 0.3).",
+    "thought_2": "Bước 2: Các giá trị riêng của ma trận đường chéo chính là các phần tử trên đường chéo: lambda_1 = 0.7 và lambda_2 = 0.3.",
+    "thought_3": "Bước 3: Trị riêng lớn nhất của ma trận rho là 0.7.",
+    "answer": "0.7"
+  },
+  {
+    "question": "Trong không gian Hilbert 2-qubit, ma trận của cổng Controlled-Z (CZ) có phần tử nằm ở hàng 4, cột 4 (tương ứng với cơ sở |11>) bằng bao nhiêu?",
+    "thought_1": "Bước 1: Cổng CZ giữ nguyên các trạng thái |00>, |01>, |10> (tương ứng các hàng/cột 1, 2, 3 với giá trị 1 trên đường chéo).",
+    "thought_2": "Bước 2: Cổng CZ chỉ nhân pha -1 khi hệ ở trạng thái |11> (hàng 4, cột 4).",
+    "thought_3": "Bước 3: Do đó, phần tử tại hàng 4, cột 4 của ma trận CZ bằng -1.",
+    "answer": "-1"
+  },
+  {
+    "question": "Một hệ qubit chịu tác động tiêu tán năng lượng (Amplitude Damping) với hệ số gamma = 0.2. Nếu trạng thái ban đầu là |1>, xác suất hệ bị suy sụp về trạng thái |0> sau kênh tiêu tán là bao nhiêu phần trăm?",
+    "thought_1": "Bước 1: Toán tử Kraus E_1 của kênh Amplitude Damping chịu trách nhiệm chuyển trạng thái |1> thành |0> có dạng [[0, sqrt(gamma)], [0, 0]].",
+    "thought_2": "Bước 2: Xác suất chuyển đổi từ |1> sang |0> được tính bằng bình phương của phần tử ma trận hoặc hệ số gamma.",
+    "thought_3": "Bước 3: Với gamma = 0.2, xác suất hệ chuyển về |0> là 0.2, tương đương 20%.",
+    "answer": "20%"
+  },
+  {
+    "question": "Cho mạch lượng tử gồm cổng Hadamard áp dụng nối tiếp hai lần liên tiếp lên một qubit (H*H). Phép biến đổi này tương đương với cổng lượng tử cơ bản nào?",
+    "thought_1": "Bước 1: Cổng Hadamard có tính chất tự nghịch đảo (H^2 = I).",
+    "thought_2": "Bước 2: Khi áp dụng hai lần liên tiếp, H*H|psi> = I|psi> = |psi>.",
+    "thought_3": "Bước 3: Do đó, tích hai cổng H liên tiếp tương đương với toán tử đồng nhất (Identity gate - I).",
+    "answer": "Cổng đồng nhất (Identity - I)"
+  },
+  {
+    "question": "Trong mô hình tính toán lượng tử đoạn nhiệt (Adiabatic Quantum Computation), hệ thống tiến hóa chậm từ trạng thái nền của Hamiltonian ban đầu H_i sang trạng thái nền của Hamiltonian bài toán H_f dựa vào định lý vật lý nào?",
+    "thought_1": "Bước 1: Định lý tiến hóa đoạn nhiệt phát biểu rằng nếu một hệ thống ở trạng thái eigenstate (ví dụ trạng thái nền) được biến đổi Hamiltonian đủ chậm.",
+    "thought_2": "Bước 2: Hệ thống sẽ tiếp tục ở trạng thái tương ứng của Hamiltonian tức thời mà không bị chuyển mức năng lượng.",
+    "thought_3": "Bước 3: Định lý nền tảng này là Định lý tiến hóa đoạn nhiệt (Adiabatic Theorem).",
+    "answer": "Định lý tiến hóa đoạn nhiệt (Adiabatic Theorem)"
+  },
+  {
+    "question": "Cho một cổng quay quanh trục Z với góc quay theta = pi/2 (Cổng S). Nếu tác động cổng này lên trạng thái |+> = (1/sqrt(2))(|0> + |1>), trạng thái thu được là gì?",
+    "thought_1": "Bước 1: Tác động cổng S = [[1, 0], [0, i]] lên |+> = (1/sqrt(2))(|0> + |1>).",
+    "thought_2": "Bước 2: Ta tính S|0> = |0> và S|1> = i|1>.",
+    "thought_3": "Bước 3: Trạng thái kết quả là (1/sqrt(2))(|0> + i|1>).",
+    "answer": "(1/sqrt(2))(|0> + i|1>)"
+  },
+  {
+    "question": "Tính trace (vết) của ma trận cổng Pauli-X.",
+    "thought_1": "Bước 1: Viết ma trận Pauli-X dưới dạng [[0, 1], [1, 0]].",
+    "thought_2": "Bước 2: Tính tổng các phần tử trên đường chéo chính: Tr(X) = 0 + 0.",
+    "thought_3": "Bước 3: Kết luận vết của ma trận X bằng 0.",
+    "answer": "0"
+  },
+  {
+    "question": "Trong lý thuyết mã hóa lượng tử, mã 3-qubit lặp bit (3-qubit bit-flip code) có khả năng sửa được tối đa bao nhiêu lỗi đảo bit đơn lẻ (single bit-flip error)?",
+    "thought_1": "Bước 1: Mã lặp 3 qubit sử dụng biểu diễn |0>L = |000> và |1>L = |111>.",
+    "thought_2": "Bước 2: Sử dụng hội chứng đo lường (syndrome measurement) qua các toán tử Z_i Z_j.",
+    "thought_3": "Bước 3: Mã này có khoảng cách mã d = 3, do đó có thể sửa được chính xác 1 lỗi đơn lẻ bất kỳ trên bất kỳ qubit nào.",
+    "answer": "1"
+  },
+  {
+    "question": "Cho trạng thái hỗn hợp được mô tả bởi ma trận mật độ rho = 0.5*|0><0| + 0.5*|1><1|. Trạng thái này có biểu diễn trên mặt cầu Bloch ở vị trí nào?",
+    "thought_1": "Bước 1: Chuyển đổi ma trận mật độ rho = [[0.5, 0], [0, 0.5]] sang vector Bloch dùng công thức rho = 0.5*(I + r.sigma).",
+    "thought_2": "Bước 2: Ta tìm được các thành phần vector Bloch: x = 0, y = 0, z = 0.",
+    "thought_3": "Bước 3: Vector Bloch bằng 0 tương ứng với tâm của mặt cầu Bloch (trạng thái hỗn hợp cực đại).",
+    "answer": "Tâm mặt cầu Bloch (Trạng thái hỗn hợp cực đại)"
+  },
+  {
+    "question": "Trong thuật toán Bernstein-Vazirani, mục tiêu là tìm một chuỗi bit bí mật s thuộc {0,1}^n qua đúng một lần gọi hàm Oracle lượng tử. Cổng lượng tử nào được áp dụng cho toàn bộ các qubit ở bước cuối cùng trước khi đo để giải mã chuỗi s?",
+    "thought_1": "Bước 1: Sau khi hàm Oracle mã hóa chuỗi bit s vào pha của các trạng thái, hệ thống ở trạng thái vướng víu phức tạp.",
+    "thought_2": "Bước 2: Để can thiệp giao thoa và khôi phục lại kết quả tường minh, ta cần áp dụng lớp cổng Hadamard (H) cho tất cả các qubit.",
+    "thought_3": "Bước 3: Phép biến đổi này giúp chuyển đổi thông tin pha thành thông tin biên độ để đo đạc chính xác chuỗi s.",
+    "answer": "Cổng Hadamard (H)"
+  },
+  {
+    "question": "Cho hệ 2 qubit ở trạng thái cơ sở tính toán |01>. Nếu ta áp dụng cổng Hadamard cho qubit thứ nhất và giữ nguyên qubit thứ hai, trạng thái sau phép biến đổi là gì?",
+    "thought_1": "Bước 1: Tác động H lên qubit thứ nhất: H|0> = (1/sqrt(2))(|0> + |1>). Qubit thứ hai giữ nguyên |1>.",
+    "thought_2": "Bước 2: Thực hiện tích tensor: (1/sqrt(2))(|0> + |1>) ⊗ |1>.",
+    "thought_3": "Bước 3: Khai triển ta thu được trạng thái (1/sqrt(2))(|01> + |11>).",
+    "answer": "(1/sqrt(2))(|01> + |11>)"
+  },
+  {
+    "question": "Trong các mô hình máy tính lượng tử dựa trên siêu dẫn, đơn vị cơ bản để thực hiện các phép toán logic một qubit thường sử dụng hiệu ứng Josephson nào?",
+    "thought_1": "Bước 1: Các qubit siêu dẫn (như Transmon) được cấu tạo từ tụ điện song song với mối nối Josephson (Josephson Junction).",
+    "thought_2": "Bước 2: Hiệu ứng Josephson phi tuyến tính tạo ra khoảng cách năng lượng không đều giữa các mức (anharmonicity).",
+    "thought_3": "Bước 3: Hiệu ứng này cho phép cô lập không gian 2 mức năng lượng để vận hành qubit.",
+    "answer": "Hiệu ứng Josephson (Josephson Junction effect)"
+  },
+  {
+    "question": "Tính định thức (determinant) của ma trận cổng Hadamard H.",
+    "thought_1": "Bước 1: Ma trận Hadamard H = (1/sqrt(2)) * [[1, 1], [1, -1]].",
+    "thought_2": "Bước 2: Tính định thức của phần bên trong: (1)*( -1) - (1)*(1) = -1 - 1 = -2.",
+    "thought_3": "Bước 3: Nhân với hệ số tỷ lệ bình phương (1/sqrt(2))^2 = 1/2, ta có det(H) = (1/2)*(-2) = -1.",
+    "answer": "-1"
+  },
+  {
+    "question": "Trong giao thức truyền thông lượng tử Entanglement Swapping (Hoán đổi vướng víu), nếu Alice và Bob không vướng víu trực tiếp nhưng cả hai đều vướng víu với Charlie qua hai cặp Bell độc lập, phép đo cơ sở Bell do Charlie thực hiện sẽ làm cho trạng thái của Alice và Bob chuyển thành gì?",
+    "thought_1": "Bước 1: Charlie sở hữu 2 qubit thuộc hai cặp Bell khác nhau và thực hiện phép đo chiếu trạng thái Bell.",
+    "thought_2": "Bước 2: Kết quả đo của Charlie làm suy sụp hệ thống, tạo ra hiện tượng vướng víu từ xa giữa các qubit còn lại của Alice và Bob.",
+    "thought_3": "Bước 3: Trạng thái của Alice và Bob sau đó trở thành một cặp trạng thái vướng víu (cặp Bell) dù chưa từng tương tác trực tiếp.",
+    "answer": "Trạng thái vướng víu (cặp Bell)"
+  },
+  {
+    "question": "Cho biết trị riêng (eigenvalues) của ma trận cổng Pauli-Z là gì?",
+    "thought_1": "Bước 1: Ma trận Pauli-Z có dạng [[1, 0], [0, -1]].",
+    "thought_2": "Bước 2: Giải phương trình đặc trưng det(Z - lambda*I) = 0, tức (1 - lambda)(-1 - lambda) = 0.",
+    "thought_3": "Bước 3: Ta thu được hai nghiệm trị riêng là +1 và -1.",
+    "answer": "+1 và -1"
+  },
+  {
+    "question": "Trong thuật toán Quantum Walk (Đi bộ lượng tử), tốc độ lan truyền (spreading rate) trên đồ thị so với đi bộ ngẫu nhiên cổ điển (classical random walk) có đặc điểm gì?",
+    "thought_1": "Bước 1: Đi bộ ngẫu nhiên cổ điển lan truyền theo phân phối chuẩn với độ lệch chuẩn tỷ lệ tuyến tính với căn bậc hai của số bước t (O(sqrt(t))).",
+    "thought_2": "Bước 2: Đi bộ lượng tử tận dụng hiện tượng giao thoa biên độ xác suất thay vì xác suất cộng dồn.",
+    "thought_3": "Bước 3: Do đó, độ dịch chuyển chuẩn của đi bộ lượng tử tỷ lệ tuyến tính trực tiếp với số bước t (O(t)), mang tính gia tốc bậc cao.",
+    "answer": "Lan truyền nhanh hơn theo tỷ lệ tuyến tính O(t) so với O(sqrt(t)) ở cổ điển"
+  },
+  {
+    "question": "Cho một hệ lượng tử 2 qubit ở trạng thái |00>. Nếu ta áp dụng cổng X lên qubit thứ nhất và cổng Z lên qubit thứ hai, trạng thái đầu ra là gì?",
+    "thought_1": "Bước 1: X|0> cho ra |1>, Z|0> cho ra |0>.",
+    "thought_2": "Bước 2: Kết hợp tích tensor hai trạng thái mới: |1> ⊗ |0>.",
+    "thought_3": "Bước 3: Trạng thái đầu ra của hệ thống là |10>.",
+    "answer": "|10>"
+  },
+  {
+    "question": "Trong mã hóa lượng tử bề mặt (Surface Code), các lỗi vật lý được phát hiện và chẩn đoán thông qua việc đo lường tập hợp các toán tử ổn định (stabilizers) cục bộ nằm trên cấu trúc lưới hình gì?",
+    "thought_1": "Bước 2: Mã bề mặt sắp xếp các qubit dữ liệu tại các đỉnh (vertices) của lưới 2 chiều.",
+    "thought_2": "Bước 2: Các qubit đo lường bổ sung (ancilla qubits) được đặt ở trung tâm các mặt (plaquettes) và các cạnh (stars).",
+    "thought_3": "Bước 3: Do đó, các phép đo ổn định cục bộ thực hiện trên cấu trúc lưới ô vuông (square lattice).",
+    "answer": "Lưới ô vuông (Square lattice)"
+  },
+  {
+    "question": "Tính tích vô hướng giữa hai trạng thái cơ sở trực giao |0> và |1> trong không gian Hilbert của một qubit.",
+    "thought_1": "Bước 1: Viết biểu diễn vector cột của hai trạng thái: |0> = [1, 0]^T và |1> = [0, 1]^T.",
+    "thought_2": "Bước 2: Lấy tích vô hướng (chuyển vị liên hợp của vector thứ nhất nhân với vector thứ hai): <0|1> = [1, 0] * [0, 1]^T.",
+    "thought_3": "Bước 3: Kết quả tích vô hướng bằng 0 do tính trực giao cơ bản.",
+    "answer": "0"
+  },
+  {
+    "question": "Trong mô hình mạch lượng tử, cổng CNOT có tính chất tự nghịch đảo (CNOT^2 = I) hay không?",
+    "thought_1": "Bước 1: Cổng CNOT thực hiện phép lật qubit mục tiêu khi qubit điều khiển bằng 1.",
+    "thought_2": "Bước 2: Khi áp dụng cổng CNOT hai lần liên tiếp lên bất kỳ trạng thái 2-qubit nào, tác động lật bit được đảo ngược hoàn toàn về trạng thái ban đầu.",
+    "thought_3": "Bước 3: Do đó, CNOT có tính chất tự nghịch đảo (CNOT^2 = I).",
+    "answer": "Có (Tự nghịch đảo, CNOT^2 = I)"
+  },
+  {
+    "question": "Một bộ xử lý lượng tử có số lượng qubit vật lý là N = 50. Kích thước không gian Hilbert (số chiều không gian trạng thái tổng quát thuần túy) của bộ xử lý này bằng bao nhiêu?",
+    "thought_1": "Bước 1: Không gian trạng thái của hệ N qubit là tích tensor của N không gian đơn lẻ 2 chiều.",
+    "thought_2": "Bước 2: Số chiều của không gian Hilbert tính theo lũy thừa cơ số 2: 2^N.",
+    "thought_3": "Bước 3: Với N = 50, số chiều không gian là 2^50 (tương đương khoảng 1.125 x 10^15 trạng thái).",
+    "answer": "2^50"
+  },
+  {
+    "question": "Trong thuật toán VQE (Variational Quantum Eigensolver), việc tối ưu hóa các tham số góc quay của mạch lượng tử tham số hóa (Ansatz) để tìm năng lượng trạng thái nền dựa trên nguyên lý variational của định luật nào trong cơ học lượng tử?",
+    "thought_1": "Bước 1: Nguyên lý biến phân (Variational Principle) phát biểu rằng giá trị kỳ vọng của Hamiltonian đối với bất kỳ trạng thái thử nghiệm nào luôn lớn hơn hoặc bằng năng lượng trạng thái nền thực tế.",
+    "thought_2": "Bước 2: Thuật toán VQE sử dụng máy tính lượng tử để đo giá trị kỳ vọng năng lượng và máy tính cổ điển để cập nhật tham số giảm dần.",
+    "thought_3": "Bước 3: Do đó, nền tảng lý thuyết cốt lõi là Nguyên lý biến phân (Variational Principle).",
+    "answer": "Nguyên lý biến phân (Variational Principle)"
+  },
+  {
+    "question": "Cho trạng thái 2-qubit |psi> = (1/sqrt(2))(|01> - |10>). Trạng thái này thuộc nhóm các trạng thái Bell nào?",
+    "thought_1": "Bước 1: Nhận diện 4 trạng thái Bell chuẩn: |Phi±> = (1/sqrt(2))(|00> ± |11>) và |Psi±> = (1/sqrt(2))(|01> ± |10>).",
+    "thought_2": "Bước 2: So khớp biểu thức đề bài với các trạng thái chuẩn, ta thấy đây là trường hợp dấu trừ của họ Psi.",
+    "thought_3": "Bước 3: Kết luận đây là trạng thái Bell |Psi-> (thường gọi là trạng thái singlet).",
+    "answer": "|Psi-> (Trạng thái singlet)"
+  },
+  {
+    "question": "Trong hệ thống máy tính lượng tử bẫy ion (Trapped-ion quantum computer), các qubit được lưu trữ thông qua trạng thái năng lượng bên trong của cái gì?",
+    "thought_1": "Bước 1: Công nghệ bẫy ion sử dụng các ion tích điện (như Yтьербий hoặc Canxi) bị giữ lơ lửng trong không gian bằng trường điện từ.",
+    "thought_2": "Bước 2: Qubit được mã hóa bằng các trạng thái điện tử nội tại của ion (chẳng hạn trạng thái mặt đất siêu tinh tế - hyperfine ground states).",
+    "thought_3": "Bước 3: Do đó, qubit được lưu trữ qua trạng thái năng lượng của các ion nguyên tử.",
+    "thought_4": "answer: Trạng thái điện tử nội tại của ion nguyên tử",
+    "answer": "Trạng thái điện tử nội tại của ion nguyên tử"
+  },
+  {
+    "question": "Tính trace (vết) của ma trận tích tensor giữa cổng Pauli-X và cổng Pauli-Z (X ⊗ Z).",
+    "thought_1": "Bước 1: Tính chất của vết tích tensor: Tr(A ⊗ B) = Tr(A) * Tr(B).",
+    "thought_2": "Bước 2: Ta biết Tr(X) = 0 và Tr(Z) = 1 + (-1) = 0.",
+    "thought_3": "Bước 3: Do đó, Tr(X ⊗ Z) = Tr(X) * Tr(Z) = 0 * 0 = 0.",
+    "answer": "0"
+  },
+  {
+    "question": "Trong các bài toán tối ưu hóa lượng tử, thuật toán QAOA (Quantum Approximate Optimization Algorithm) sử dụng các tầng mạch luân phiên giữa hai Hamiltonian nào?",
+    "thought_1": "Bước 1: QAOA áp dụng mô hình tiến hóa hỗn hợp dựa trên Hamiltonian chi phí (Cost Hamiltonian H_C) mã hóa bài toán cần giải.",
+    "thought_2": "Bước 2: Kết hợp luân phiên với Hamiltonian trộn (Mixing Hamiltonian H_M) thường tạo bởi tổng các cổng Pauli-X.",
+    "thought_3": "Bước 3: Hai Hamiltonian này được áp dụng luân phiên theo các góc tham số hóa gamma và beta.",
+    "answer": "Hamiltonian chi phí (Cost Hamiltonian) và Hamiltonian trộn (Mixing Hamiltonian)"
+  },
+  {
+    "question": "Cho một mạch lượng tử thực hiện phép đo Bell trên hai qubit. Trước khi đo, người ta tác động một cổng CNOT (với qubit 1 điều khiển, qubit 2 mục tiêu) và sau đó tác dụng cổng gì lên qubit thứ nhất?",
+    "thought_1": "Bước 1: Chuẩn mạch đo cơ sở Bell kinh điển bắt đầu bằng cổng CNOT (điều khiển qubit 1, mục tiêu qubit 2).",
+    "thought_2": "Bước 2: Tiếp theo, để hoàn tất việc chuyển đổi cơ sở Bell về cơ sở tính toán chuẩn, ta áp dụng cổng Hadamard (H) lên qubit thứ nhất.",
+    "thought_3": "Bước 3: Sau đó thực hiện đo đạc trực tiếp trên cả hai qubit.",
+    "answer": "Cổng Hadamard (H)"
+  },
+  {
+    "question": "Trong cơ học lượng tử, điều kiện để một toán tử A là toán tử Hermite (Hermitian operator) là gì?",
+    "thought_1": "Bước 1: Toán tử Hermite phải bằng chính liên hợp chuyển vị của nó (tự đồng hợp).",
+    "thought_2": "Bước 2: Viết dưới dạng toán học: A = A^dagger (hay A_ij = A_ji*).",
+    "thought_3": "Bước 3: Điều kiện này đảm bảo tất cả các giá trị riêng của toán tử đều là số thực, phù hợp để đại diện cho các đại lượng có thể đo đạc (observables).",
+    "answer": "A = A^dagger (Liên hợp chuyển vị bằng chính nó)"
+  },
+  {
+    "question": "Cho ma trận mật độ rho của một trạng thái lượng tử. Giá trị lớn nhất của độ tinh khiết Tr(rho^2) đối với một trạng thái hỗn hợp thực sự (mixed state) trong không gian hữu hạn chiều là gì so với 1?",
+    "thought_1": "Bước 1: Độ tinh khiết của trạng thái thuần túy luôn bằng 1.",
+    "thought_2": "Bước 2: Đối với trạng thái hỗn hợp thực sự, luôn có Tr(rho^2) < 1.",
+    "thought_3": "Bước 3: Do đó, giá trị của độ tinh khiết luôn nhỏ hơn 1.",
+    "answer": "Nhỏ hơn 1 (< 1)"
+  },
+  {
+    "question": "Trong thuật toán Quantum Teleportation, nếu kết quả đo của Alice trên 2 qubit của cô ấy trả về chuỗi cổ điển '10', hành động sửa đổi tương ứng mà Bob cần thực hiện trên qubit của mình là gì?",
+    "thought_1": "Bước 1: Quy ước giải mã chuẩn trong viễn tải lượng tử: kết quả '00' không cần sửa (I), '01' sửa bằng X, '10' sửa bằng Z, '11' sửa bằng X kết hợp Z (ZX).",
+    "thought_2": "Bước 2: Kết quả đo '10' tương ứng với việc qubit của Bob bị lệch pha.",
+    "thought_3": "Bước 3: Do đó, Bob cần tác động cổng Z lên qubit của mình để khôi phục trạng thái ban đầu.",
+    "answer": "Cổng Z"
+  },
+  {
+    "question": "Trong các cổng logic lượng tử một qubit, cổng T (cổng pi/8) có góc quay quanh trục Z bằng bao nhiêu độ?",
+    "thought_1": "Bước 1: Cổng T được định nghĩa có ma trận [[1, 0], [0, e^(i*pi/4)]].",
+    "thought_2": "Bước 2: Góc pha tương đối giữa hai trạng thái cơ sở là pi/4 radian.",
+    "thought_3": "Bước 3: Quy đổi ra độ, pi/4 tương ứng với góc quay bằng 45 độ.",
+    "answer": "45 độ (pi/4 radian)"
+  },
+  {
+    "question": "Tính giá trị kỳ vọng <psi|X|psi> của toán tử Pauli-X đối với trạng thái |-> = (1/sqrt(2))(|0> - |1>).",
+    "thought_1": "Bước 1: Trạng thái |-> là vector riêng ứng với trị riêng -1 của toán tử Pauli-X (X|-> = -|->).",
+    "thought_2": "Bước 2: Lấy tích vô hướng bên trái với <-|: <-|X|-> = <-|(-|->) = -<-|->.",
+    "thought_3": "Bước 3: Do <-|-> = 1, giá trị kỳ vọng thu được là -1.",
+    "answer": "-1"
+  }
+]
